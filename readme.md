@@ -4,22 +4,22 @@ Threaded Java socket server and client
 ## Example
 
 Create a server at port 5556 with a `MessageHandler`, which is the `EchoHandler` in this example.
-```
+``` java
 SocketServer server = new SocketServer(5556, new EchoHandler());
 ```
 
 Create a client connecting to localhost's port 5556.
-```
+``` java
 SocketClient client = new SocketClient(InetAddress.getLocalHost(), 5556);
 ```
 
 Send a message from the client.
-```
+``` java
 client.println("Hello!");
 ```
 
 Print out the message from the server. The function `SocketClient.readLine()` blocks.
-```
+``` java
 System.out.println(client.readLine());
 ```
 
