@@ -23,9 +23,19 @@ Print out the message from the server. The function `SocketClient.readLine()` bl
 System.out.println(client.readLine());
 ```
 
+The `EchoHandler` implements the `MessageHandler` interface and overrides the abstract method `onReceive()`. The argument `connection` enables you to send a string back to the client.
+``` java
+public class EchoHandler implements MessageHandler {
+    @Override
+    public void onReceive(Connection connection, String message) {
+        connection.send(message);
+    }
+}
+```
+
 ## Features
 
-`SocketServer` is threaded. It creates a thread for accepting connections and creates a new thread when a client is connected.
+`SocketServer` is threaded. It creates a thread for accepting connections and creates a new thread each time a new client is connected.
 `SocketClient` is not threaded and the function `readLine()` blocks.
 
 ## Current Issues
