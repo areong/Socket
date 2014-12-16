@@ -6,6 +6,6 @@ import com.areong.socket.MessageHandler;
 class EchoHandler implements MessageHandler {
     @Override
     public void onReceive(Connection connection, String message) {
-        connection.send(message);
+        connection.println(message);
     }
 }

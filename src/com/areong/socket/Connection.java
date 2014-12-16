@@ -12,7 +12,7 @@ public class Connection {
         this.socket = socket;
     }
 
-    public void send(String message) {
+    public void println(String message) {
         PrintWriter writer;
         try {
             writer = new PrintWriter(new OutputStreamWriter(
