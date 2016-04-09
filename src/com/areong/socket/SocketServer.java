@@ -34,6 +34,10 @@ public class SocketServer {
      */
     private void close() {
         try {
+		 if (serverSocket != null && !serverSocket.isClosed()) {
+                           listeningThread.suspend();
+                           listeningThread.stop();
+                           
             serverSocket.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
