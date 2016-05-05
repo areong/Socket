@@ -30,14 +30,15 @@ public class SocketServer {
     }
     
     /*
-     * Not ready for use.
+     * Ready for use.
      */
     public void close() {
         try {
 		 if (serverSocket != null && !serverSocket.isClosed()) {
-                           listeningThread.suspend();
-                           listeningThread.stop();
-                           
+			listeningThread.stopRunning();
+			listeningThread.suspend();
+            listeningThread.stop();
+            
             serverSocket.close();
                  }
         } catch (IOException e) {
