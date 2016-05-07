@@ -40,8 +40,8 @@ class ListeningThread extends Thread {
     }
     
     public void stopRunning() {
-    	for (int i = 0; i < connThreads.size(); i++)
-    		connThreads.elementAt(i).stopRunning();
+        for (int i = 0; i < connThreads.size(); i++)
+            connThreads.elementAt(i).stopRunning();
         isRunning = false;
     }
 } 

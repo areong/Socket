@@ -27,7 +27,7 @@ class SocketExample {
         SocketClient client = new SocketClient(InetAddress.getLocalHost(), 5556);
         client.println("Hello!");
         System.out.println(client.readLine());
-        
+            
         client.close();
         server.close();
     }

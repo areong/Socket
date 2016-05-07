@@ -34,13 +34,13 @@ public class SocketServer {
      */
     public void close() {
         try {
-		 if (serverSocket != null && !serverSocket.isClosed()) {
-			listeningThread.stopRunning();
-			listeningThread.suspend();
-            listeningThread.stop();
-            
-            serverSocket.close();
-                 }
+            if (serverSocket != null && !serverSocket.isClosed()) {
+                listeningThread.stopRunning();
+                listeningThread.suspend();
+                listeningThread.stop();
+
+                serverSocket.close();
+            }
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
