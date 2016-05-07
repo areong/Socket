@@ -37,8 +37,3 @@ public class EchoHandler implements MessageHandler {
 
 `SocketServer` is threaded. It creates a thread for accepting connections and creates a new thread each time a new client is connected.
 `SocketClient` is not threaded and the function `readLine()` blocks.
-
-## Current Issues
-
-* 2014.12.13.
-Do not have methods to close connections from `SocketServer` nor `SocketClient`. Connection does not close until the program exits. Using `Socket.close()` and `ServerSocket.close()` does not work elegantly.
