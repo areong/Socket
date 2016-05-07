@@ -32,7 +32,8 @@ class ConnectionThread extends Thread {
                 reader = new BufferedReader(new InputStreamReader(
                                             socket.getInputStream()));
                 String message = reader.readLine();
-                socketServer.getMessageHandler().onReceive(connection, message);
+                if (message != null)
+                	socketServer.getMessageHandler().onReceive(connection, message);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
