@@ -18,15 +18,16 @@ class SocketExample {
     public static void main(String[] args) throws IOException {
         // Start as a server or a client.
         System.out.println("Please input '0' or '1' to start a server or a client.");
+        System.out.println("Before starting a client, make sure a server is already running at the same PC.");
         System.out.println("  0: server");
         System.out.println("  1: client");
         System.out.println("  others: close the program.");
-        int keystroke = inputScanner.nextInt();
-        switch (keystroke) {
-        case 0:
+        String input = inputScanner.next();
+        switch (input) {
+        case "0":
             startServer();
             break;
-        case 1:
+        case "1":
             startClient();
             break;
         default:
