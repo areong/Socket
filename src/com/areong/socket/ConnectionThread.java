@@ -56,6 +56,10 @@ class ConnectionThread extends Thread {
             }
         }
     }
+
+    public boolean isRunning() {
+        return isRunning;
+    }
     
     public void stopRunning() {
         isRunning = false;
