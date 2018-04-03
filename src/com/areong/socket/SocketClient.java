@@ -25,7 +25,7 @@ public class SocketClient {
         try {
             writer = new PrintWriter(new OutputStreamWriter(
                                      socket.getOutputStream()), true);
-            writer.println(message);
+            writer.println(MessageFlag.pureMessage + message);
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
@@ -53,6 +53,11 @@ public class SocketClient {
      */
     public void close() {
         try {
+            // Send a message to tell the server to close the connection.
+            PrintWriter writer = new PrintWriter(new OutputStreamWriter(
+                socket.getOutputStream()), true);
+            writer.println(MessageFlag.connectionClosed);
+
             if (socket != null && !socket.isClosed())
                 socket.close();
         } catch (IOException e) {

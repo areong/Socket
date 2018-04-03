@@ -31,14 +31,34 @@ class ConnectionThread extends Thread {
             try {
                 reader = new BufferedReader(new InputStreamReader(
                                             socket.getInputStream()));
-                String message = reader.readLine();
-                if (message != null)
-                    socketServer.getMessageHandler().onReceive(connection, message);
+                String rawMessage = reader.readLine();
+                String messageFlag = rawMessage.substring(0, 1);
+                String message = rawMessage.substring(1);
+
+                // Check the message flag.
+                switch (messageFlag) {
+                case MessageFlag.pureMessage:
+                    // Handle the message.
+                    if (message != null) {
+                        socketServer.getMessageHandler().onReceive(connection, message);
+                    }
+                    break;
+                case MessageFlag.connectionClosed:
+                    stopRunning();
+                    break;
+                default:
+                    break;
+                }
+
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean isRunning() {
+        return isRunning;
     }
     
     public void stopRunning() {
