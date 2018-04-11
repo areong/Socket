@@ -1,4 +1,7 @@
 # Socket
+
+[![Gitter chat](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/areong_Socket/Lobby)
+
 Threaded Java socket server and client
 
 ## Example
